@@ -11,6 +11,7 @@ myAge=$(( 20 + RANDOM % 50))
 # Enter an endless loop which will break once the user guesses correctly.
 while true
 do
+
     # Prompt the user for a guess and store it under the variable 'ageGuess'.
     read -p "Guess my age! Hint - it is between 20-70... Enter a guess: " ageGuess
 
