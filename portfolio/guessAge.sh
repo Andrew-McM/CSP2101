@@ -5,8 +5,8 @@
 # Student Num: 10364024
 
 
-# Generate a random integer between 20-70 (inclusive).
-myAge=$(( 20 + RANDOM % 50))
+# Generate a random integer between 20-70 (inclusive), store it under the variable myAge.
+myAge=$(( 20 + RANDOM % 50 ))
 
 # Enter an endless loop which will break once the user guesses correctly.
 while true
