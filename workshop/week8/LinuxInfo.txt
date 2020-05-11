@@ -1,0 +1,3 @@
+This file contains information 
+Some of this information is about Linux 
+Some of this information is not.
