@@ -30,6 +30,7 @@ do
         #Substitute the second comma of each line with 'Width: ' preceded by a tab for formatting.
         #Substitute the third comma of each line with 'Area: ' preceded by a tab for formatting.
         #Substitute the fourth comma of each line with 'Colour: ' preceded by a tab for formatting.
+        #Format the data taken from $rectangleFile and output it to rectangle_f.txt.
         sed -e '1d'\
             -e 's/^/Name: /g'\
             -e 's/,/\tHeight: /'\
