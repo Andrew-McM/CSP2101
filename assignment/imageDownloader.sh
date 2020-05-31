@@ -7,24 +7,23 @@ red='\033[31m'
 green='\033[32m'
 clear='\033[0m'
 cyan='\033[36m'
+purple='\033[35m'
 
 echo -e "\nWelcome to the ECU Cyber Security Image Downloader Program!\n"
 
-#Create endless loop until a valid input is given.
-while true
-do
-    read -p "Specify the location you wish your images to be downloaded to: " saveDir
-    #If saveDir does not exist - re-prompt for input.
-    if [[ ! -d "$saveDir" ]]; then
-        echo -e "${red}\nThat directory does not exist - please specify a valid directory.\n${clear}"
-        continue
-    #If saveDir exists - change directory to saveDir and break from loop.
-    else
-        echo -e "${green}\nThank you - your images will be downloaded to $saveDir.${clear}"
-        cd $saveDir
-        break
-    fi
-done
+#Prompt user to enter the directroy they want their images downloaded to
+read -p "Specify the location you wish your images to be downloaded to: " saveDir
+#If saveDir does not exist - creare the directory.
+if [[ ! -d "$saveDir" ]]; then
+    echo -e "${cyan}\nThat directory does not currently exist - creating new direcrory...${clear}"
+    mkdir $saveDir
+    cd $saveDir
+    echo -e "${green}\nThank you - your images will be downloaded to $saveDir.${clear}"
+#If saveDir exists - change directory to saveDir and break from loop.
+else
+    echo -e "${green}\nThank you - your images will be downloaded to $saveDir.${clear}"
+    cd $saveDir
+fi
 
 #Enter endless loop to continuously prompt user for an action.
 while true
@@ -42,10 +41,19 @@ do
 
         #If the user enters '1', run the following code.
         "1")
+            echo -e "\n${purple}DSC01533, DSC01536, DSC01543, DSCO1558, DSC01565, DSC01566, DSCO1569, DSC01576, DSC01578, DSC01595,
+DSC01601, DSC01604, DSC01607, DSC01624, DSC01625, DSC01629, DSC01656, DSC01657, DSC01663, DSC01667,
+DSC01675, DSC01687, DSC01688, DSC01692, DSC01693, DSC01695, DSC01706, DSC01729, DSC01732, DSC01740,
+DSC01746, DSC01752, DSC01758, DSC01761, DSC01766, DSC01780, DSC01789, DSC01794, DSC01799, DSC01816,
+DSC01832, DSC01834, DSC01837, DSC01843, DSC01857, DSC01864, DSC01871, DSC01873, DSC01881, DSC01883,
+DSC01886, DSC01891, DSC01904, DSC01906, DSC01909, DSC01912, DSC01914, DSC01919, DSC01920, DSC01921,
+DSC01960, DSC01961, DSC01983, DSC01985, DSC01988, DSC01992, DSC01997, DSC02004, DSC02007, DSC02019,
+DSC02028, DSC02030, DSC02032, DSC02038, DSC02042.\n${clear}"
+
             #Enter endless loop.
             while true
             do
-                read -p "Enter the name of the image you wish to download (or type 'Cancel' to return): " imageName
+                read -p "Enter the name of the image from the list above you wish to download (or type 'Cancel' to return): " imageName
                 #If user enters 'CANCEL' break from loop (^^ used to make input case insensitive).
                 if [[ ${imageName^^} == 'CANCEL' ]]; then
                     break
